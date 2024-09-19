@@ -1,0 +1,32 @@
+{
+  "name": "reallydope/ghost-php",
+  "description": "A modern PHP SDK for working with Ghost's APIs",
+  "type": "library",
+  "require": {
+    "php": "^8.0"
+  },
+  "require-dev": {
+    "pestphp/pest": "^3.0"
+  },
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "ReallyDope\\Ghost\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Sam Rapaport",
+      "email": "me@samrapaport.com"
+    }
+  ],
+  "minimum-stability": "stable",
+  "scripts": {
+    "test": "./vendor/bin/pest"
+  },
+  "config": {
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
+    }
+  }
+}
