@@ -6,6 +6,7 @@
 vendor
 build
 composer.lock
+scratchpad
 
 # OS specific
 .DS_Store

@@ -24,6 +24,8 @@
 |
 */
 
+use ReallyDope\Ghost\ValueObjects\ApiKey;
+
 expect()->extend('toBeOne', function () {
     return $this->toBe(1);
 });
@@ -39,7 +41,12 @@ expect()->extend('toBeOne', function () {
 |
 */
 
-function something()
+/**
+ * Return an ApiKey instance for testing.
+ *
+ * @return ApiKey
+ */
+function apiKey(): ApiKey
 {
-    // ..
+    return ApiKey::from('testKeyId:1234567890abcdef1234567890abcdef');
 }

@@ -3,10 +3,14 @@
   "description": "A modern PHP SDK for working with Ghost's APIs",
   "type": "library",
   "require": {
-    "php": "^8.0"
+    "php": "^8.0",
+    "firebase/php-jwt": "^6.10",
+    "guzzlehttp/guzzle": "^7.9"
   },
   "require-dev": {
-    "pestphp/pest": "^3.0"
+    "pestphp/pest": "^3.0",
+    "symfony/var-dumper": "^7.1",
+    "mockery/mockery": "^1.6"
   },
   "license": "MIT",
   "autoload": {
