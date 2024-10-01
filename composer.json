@@ -1,5 +1,5 @@
 {
-  "name": "reallydope/ghost-php",
+  "name": "reallydopelabs/ghost-php",
   "description": "A modern PHP SDK for working with Ghost's APIs",
   "type": "library",
   "require": {
