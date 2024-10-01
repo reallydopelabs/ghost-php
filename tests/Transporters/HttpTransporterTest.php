@@ -99,6 +99,32 @@ test('request can handle serialization errors', function () {
     $this->http->request($payload);
 })->throws(UnserializableResponseException::class, 'Syntax error');
 
+test('request can throw ghost errors', function () {
+    $payload = Payload::create('members', ['name' => 'Sam Rapaport']);
+    $response = new Response(403, [], json_encode([
+        'errors' => [
+            [
+                'message' => 'Invalid token: jwt expired',
+                'context' => null,
+                'type' => 'UnauthorizedError',
+                'details' => null,
+                'property' => null,
+                'help' => null,
+                'code' => 'INVALID_JWT',
+                'id' => '054625c0-8035-11ef-89a3-d7ec48a27e0b',
+                'ghostErrorCode' => null,
+            ]
+        ]
+    ]));
+
+    $this->client
+        ->shouldReceive('sendRequest')
+        ->once()
+        ->andReturn($response);
+
+    $this->http->request($payload);
+})->throws(ErrorException::class);
+
 test('request can throw json error', function () {
     $payload = Payload::create('members', ['name' => 'Sam Rapaport']);
     $response = new Response(422, [], 'err');
