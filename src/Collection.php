@@ -41,9 +41,19 @@ class Collection implements IteratorAggregate, ArrayAccess
     }
 
     /**
+     * Get the collection's resources as an array.
+     *
+     * @return array<Resource>
+     */
+    public function resources(): array
+    {
+        return $this->resources;
+    }
+
+    /**
      * Get the resource collection's metadata.
      */
-    public function getMetadata(): array
+    public function metadata(): array
     {
         return $this->metadata;
     }
