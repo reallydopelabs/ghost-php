@@ -69,24 +69,11 @@ class HttpTransporter implements Transporter
         try {
             $response = json_decode($contents, true, 512, JSON_THROW_ON_ERROR);
 
-            if (isset($response['errors']) && $this->isGhostError($response['errors'][0]['type'])) {
+            if (isset($response['errors'])) {
                 throw new ErrorException($response['errors'][0]);
             }
         } catch (JsonException $jsonException) {
             throw new UnserializableResponseException($jsonException);
         }
-    }
-
-    /**
-     * Determine if the given error name is a Ghost error.
-     */
-    protected function isGhostError(string $errorName): bool
-    {
-        $errors = [
-            'NoPermissionError',
-            'UnauthorizedError',
-        ];
-
-        return in_array($errorName, $errors);
     }
 }
